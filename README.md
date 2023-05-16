@@ -91,59 +91,56 @@ Agora você pode escrever os seus codigos.
 
 ---
 
+
+---
+
 # Usando as Classes do Robô
 
-Este documento descreve como usar as classes `Motor` e `Pacotes` em seu robô.
+Este documento descreve como usar a classe `Pacotes` em seu robô. `Pacotes` é uma classe de fachada que encapsula o uso de várias outras classes, simplificando a interação do usuário com o sistema.
 
 ## Pré-requisitos
 
-Antes de começar, certifique-se de que você importou as classes necessárias em seu código:
+Antes de começar, certifique-se de que você importou a classe `Pacotes` em seu código:
 
 ```python
 import sys
 sys.path.insert(1,'/classes')
 import Pacotes
-from machine import Pin
-import time
 ```
 
-## Usando a Classe Motor
+## Inicialização
 
-A classe `Motor` é usada para controlar os movimentos de dois motores do robô.
+Para criar uma instância da classe `Pacotes`, use o seguinte comando:
+
+```python
+meus_pacotes = Pacotes.Pacotes()
+```
+
+## Usando a Classe Motor através dos Pacotes
+
+A classe `Motor` é usada para controlar os movimentos de dois motores do robô. Ela pode ser acessada através da classe `Pacotes`.
 
 ### Inicialização
 
 Para criar uma instância da classe `Motor`, use o seguinte comando:
 
 ```python
-meu_motor = Motor()
+meu_motor = Pacotes.Motor()
 ```
-
-Esta linha inicializa os motores com suas respectivas portas e define a velocidade mínima e máxima padrão.
 
 ### Movendo os Motores
 
-Para mover o motor 1 para frente, use:
+Para mover os motores para frente, use:
 
 ```python
 meu_motor.frenteMotor1(velocidade)
-```
-
-Para mover o motor 2 para frente, use:
-
-```python
 meu_motor.frenteMotor2(velocidade)
 ```
 
-Para mover o motor 1 para trás, use:
+Para mover os motores para trás, use:
 
 ```python
 meu_motor.trazMotor1(velocidade)
-```
-
-Para mover o motor 2 para trás, use:
-
-```python
 meu_motor.trazMotor2(velocidade)
 ```
 
@@ -157,38 +154,25 @@ Para parar todos os motores, use:
 meu_motor.pararMotores()
 ```
 
-Para parar o motor 1, use:
+Para parar um motor específico, use:
 
 ```python
 meu_motor.pararMotor1()
-```
-
-Para parar o motor 2, use:
-
-```python
 meu_motor.pararMotor2()
 ```
-
-## Usando a Classe Pacotes
-
-A classe `Pacotes` é uma classe de exemplo e não possui métodos ou atributos. Para criar uma instância da classe `Pacotes`, use o seguinte comando:
-
-```python
-meu_pacote = Pacotes()
-```
-
-Esta linha apenas imprimirá "Classe de Pacotes" na saída.
 
 ## Executando a Rotina do Robô
 
 Para executar a rotina do robô, chame a função `rotina` e passe o tempo de execução desejado (em minutos) como argumento:
 
 ```python
-rotina(2)  # Executa a rotina por 2 minutos
+Pacotes.rotina(2)  # Executa a rotina por 2 minutos
 ```
 
 Durante a rotina, o LED no pino 2 piscará. Quando a rotina terminar, "programa finalizado." será impresso na saída.
 
 ---
+
+
 
 
