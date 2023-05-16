@@ -298,9 +298,53 @@ objeto = meu_pacote.infra_dig.haObjeto()
 vermelho = meu_pacote.sensor_cor.RetornaCorVermelha()
 ```
 
+
 Observe que `infra`, `infra_dig` e `sensor_cor` são os atributos da classe `Pacote` que contêm as instâncias das classes `Infra`, `InfraDig` e `SensorCor`, respectivamente. 
 
-Espero que isso ajude a usar a classe `Pacote` e suas classes associadas. Se você tiver mais perguntas, por favor, me avise.
+
+## SensorLuz
+
+A classe SensorLuz gerencia os sensores de luz do robô. Os métodos incluem:
+
+- `RetornaValorLuzSensor1()`: Retorna a intensidade da luz lida pelo sensor 1.
+- `RetornaValorLuzSensor2()`: Retorna a intensidade da luz lida pelo sensor 2.
+- `RetornaValorLuzSensor3()`: Retorna a intensidade da luz lida pelo sensor 3.
+- `ligarSensor1()`: Habilita o sensor 1.
+- `desligarSensor1()`: Desabilita o sensor 1.
+- `ligarSensor2()`: Habilita o sensor 2.
+- `desligarSensor2()`: Desabilita o sensor 2.
+- `ligarSensor3()`: Habilita o sensor 3.
+- `desligarSensor3()`: Desabilita o sensor 3.
+
+Exemplo de uso:
+
+```python
+from Pacotes import SensorLuz
+
+luz = SensorLuz()
+luz.ligarSensor1()
+print(luz.RetornaValorLuzSensor1())
+luz.desligarSensor1()
+```
+
+## Ultra
+
+A classe Ultra gerencia o sensor ultrassônico do robô. Os métodos incluem:
+
+- `iniciaSensor()`: Inicia o sensor ultrassônico.
+- `calculaDistaciaUltra()`: Calcula a distância obtida pelo sensor.
+
+Exemplo de uso:
+
+```python
+from Pacotes import Ultra
+
+ultra = Ultra(tr=trigger_pin, echo=echo_pin)
+ultra.iniciaSensor()
+print(ultra.calculaDistaciaUltra())
+```
+
+Essas classes podem ser importadas e usadas diretamente, ou através da classe Pacotes. O uso da classe Pacotes é recomendado para simplificar e agrupar as operações do robô. A classe Pacotes permite a fácil inicialização e gerenciamento de todos os sensores e funções relacionadas, fornecendo um ponto de acesso unificado.
 
 
 
