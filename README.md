@@ -1,6 +1,6 @@
 # MicroBotPy
 
-MicroBotPy é uma extensão do projeto LARA. Este framework foi desenvolvido com o objetivo de oferecer um alto nível de abstração para que os iniciantes em programação de computadores não se sintam intimidados por sintaxes que pareçam extremamente complexas.
+MicroBotPy ( Uma combinação de "MicroPython" e "Robô") é uma extensão do projeto LARA. Este framework foi desenvolvido com o objetivo de oferecer um alto nível de abstração para que os iniciantes em programação de computadores não se sintam intimidados por sintaxes que pareçam extremamente complexas.
 
 Especificamente projetado para trabalhar com microcontroladores ESP32 e o framework MicroPython, o MicroBotPy torna mais fácil para os usuários iniciarem e progredirem no mundo da robótica e automação. Ao simplificar a interação com os sensores e fornecer um conjunto abrangente de funcionalidades, este framework permite que os usuários se concentrem na lógica e funcionalidade do seu projeto, em vez de lidarem com os detalhes técnicos dos dispositivos de hardware.
 
