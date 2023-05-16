@@ -276,6 +276,33 @@ Cada um dos métodos acima retorna o valor correspondente à cor.
 ---
 
 
+# Usando a Classe Pacote
+
+A classe `Pacote` serve como um agregador ou "fachada" para as outras classes, como `Infra`, `InfraDig` e `SensorCor`. Ela facilita o uso dessas classes, permitindo que você crie uma única instância de `Pacote` que inicializa todas as outras classes automaticamente.
+
+## Inicialização
+
+Para criar uma instância da classe `Pacote`, você pode usar o seguinte comando:
+
+```python
+meu_pacote = Pacote()
+```
+
+Este comando cria uma nova instância da classe `Pacote` e, internamente, também inicializa instâncias das classes `Infra`, `InfraDig` e `SensorCor`.
+
+Depois de criar uma instância de `Pacote`, você pode acessar as instâncias das outras classes através dessa instância de `Pacote`. Aqui está como você pode fazer isso:
+
+```python
+distancia = meu_pacote.infra.calculaDistancia()
+objeto = meu_pacote.infra_dig.haObjeto()
+vermelho = meu_pacote.sensor_cor.RetornaCorVermelha()
+```
+
+Observe que `infra`, `infra_dig` e `sensor_cor` são os atributos da classe `Pacote` que contêm as instâncias das classes `Infra`, `InfraDig` e `SensorCor`, respectivamente. 
+
+Espero que isso ajude a usar a classe `Pacote` e suas classes associadas. Se você tiver mais perguntas, por favor, me avise.
+
+
 
 
 
