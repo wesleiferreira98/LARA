@@ -22,7 +22,7 @@ pip install esptool
 
 ### 2. Baixe o firmware MicroPython
 
-Baixe o firmware do MicroPython para ESP32. Você pode encontrar o firmware mais recente na [página de download do MicroPython](https://micropython.org/download/ESP32/). Escolha o apropriado para o seu módulo ESP32.
+Baixe o firmware do MicroPython para ESP32. Você pode encontrar o firmware mais recente na [página de download do MicroPython](https://micropython.org/download/?mcu=esp32). Escolha o apropriado para o seu módulo ESP32.
 
 ### 3. Conecte o ESP32 ao seu computador
 
