@@ -1,6 +1,6 @@
-# LARA
-Aqui estão as classes desenvolvidas para o projeto LARA. O objetivo dessas classes é fornecer um bom nivel de abstração para que iniciantes em programação em computadores não se sintam intimidados com 
-sitanxes que pareçam extremamente complexas. Essas classes foram desenvolvidas para serem usadas em microcontroladores com ESP32 e com o framework micropython
+# MicroBotPy
+O MicroBotPy é uma extenção do projeto LARA   O objetivo desse framework  é fornecer um bom nivel de abstração para que iniciantes em programação em computadores não se sintam intimidados com 
+sitanxes que pareçam extremamente complexas. Esse framework foi desenvolvidas para ser usadas em microcontroladores com ESP32 e com o framework micropython
 ---
 
 # Instalando MicroPython no ESP32
