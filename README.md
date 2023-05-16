@@ -85,3 +85,110 @@ No menu do Thonny, vá para `Run > Select Interpreter`. Na janela que aparece, e
 ### 4. Crie ou abra um script Python
 
 Agora você pode escrever os seus codigos.
+
+
+
+
+---
+
+# Usando as Classes do Robô
+
+Este documento descreve como usar as classes `Motor` e `Pacotes` em seu robô.
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de que você importou as classes necessárias em seu código:
+
+```python
+import sys
+sys.path.insert(1,'/classes')
+import Pacotes
+from machine import Pin
+import time
+```
+
+## Usando a Classe Motor
+
+A classe `Motor` é usada para controlar os movimentos de dois motores do robô.
+
+### Inicialização
+
+Para criar uma instância da classe `Motor`, use o seguinte comando:
+
+```python
+meu_motor = Motor()
+```
+
+Esta linha inicializa os motores com suas respectivas portas e define a velocidade mínima e máxima padrão.
+
+### Movendo os Motores
+
+Para mover o motor 1 para frente, use:
+
+```python
+meu_motor.frenteMotor1(velocidade)
+```
+
+Para mover o motor 2 para frente, use:
+
+```python
+meu_motor.frenteMotor2(velocidade)
+```
+
+Para mover o motor 1 para trás, use:
+
+```python
+meu_motor.trazMotor1(velocidade)
+```
+
+Para mover o motor 2 para trás, use:
+
+```python
+meu_motor.trazMotor2(velocidade)
+```
+
+Em todos os casos, substitua `velocidade` pela velocidade desejada.
+
+### Parando os Motores
+
+Para parar todos os motores, use:
+
+```python
+meu_motor.pararMotores()
+```
+
+Para parar o motor 1, use:
+
+```python
+meu_motor.pararMotor1()
+```
+
+Para parar o motor 2, use:
+
+```python
+meu_motor.pararMotor2()
+```
+
+## Usando a Classe Pacotes
+
+A classe `Pacotes` é uma classe de exemplo e não possui métodos ou atributos. Para criar uma instância da classe `Pacotes`, use o seguinte comando:
+
+```python
+meu_pacote = Pacotes()
+```
+
+Esta linha apenas imprimirá "Classe de Pacotes" na saída.
+
+## Executando a Rotina do Robô
+
+Para executar a rotina do robô, chame a função `rotina` e passe o tempo de execução desejado (em minutos) como argumento:
+
+```python
+rotina(2)  # Executa a rotina por 2 minutos
+```
+
+Durante a rotina, o LED no pino 2 piscará. Quando a rotina terminar, "programa finalizado." será impresso na saída.
+
+---
+
+
