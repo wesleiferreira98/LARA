@@ -54,4 +54,34 @@ Agora você deve ter o MicroPython instalado no seu ESP32!
 
 ---
 
+
 Por favor, substitua `SERIAL_PORT` e `micropython.bin` pelos valores corretos para o seu sistema e firmware.
+
+
+
+---
+
+# Programando ESP32 com MicroPython Usando Thonny IDE
+
+## Pré-requisitos:
+
+1. MicroPython instalado no ESP32. Se ainda não o fez, consulte as [instruções de instalação do MicroPython no ESP32](link_para_instruções).
+2. Thonny IDE instalado no seu computador. Se ainda não o fez, você pode baixá-lo do [site oficial do Thonny](https://thonny.org).
+
+## Instruções:
+
+### 1. Conecte o ESP32 ao seu computador
+
+Use um cabo USB para conectar o ESP32 ao seu computador.
+
+### 2. Abra o Thonny IDE
+
+Inicie o Thonny IDE no seu computador.
+
+### 3. Configure o Thonny para usar o MicroPython no ESP32
+
+No menu do Thonny, vá para `Run > Select Interpreter`. Na janela que aparece, escolha "MicroPython (ESP32)". Em seguida, na lista suspensa `Port`, selecione a porta que o ESP32 está usando.
+
+### 4. Crie ou abra um script Python
+
+Agora você pode escrever os seus codigos.
