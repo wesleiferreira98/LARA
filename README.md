@@ -173,6 +173,109 @@ Durante a rotina, o LED no pino 2 piscará. Quando a rotina terminar, "programa 
 
 ---
 
+# Usando as Classes de Sensores do Robô
+
+Este documento descreve como usar as classes `Infra`, `InfraDig` e `SensorCor` em seu robô.
+
+## Classe Infra
+
+A classe `Infra` gerencia o sensor de infravermelho do robô.
+
+### Inicialização
+
+Para criar uma instância da classe `Infra`, use o seguinte comando:
+
+```python
+meu_infra = Infra()
+```
+
+### Calculando a Distância
+
+Para calcular a distância obtida pelo sensor, use:
+
+```python
+distancia = meu_infra.calculaDistancia()
+```
+
+O método `calculaDistancia()` retorna a distância calculada.
+
+## Classe InfraDig
+
+A classe `InfraDig` gerencia o sensor de infravermelho digital do robô.
+
+### Inicialização
+
+Para criar uma instância da classe `InfraDig`, use o seguinte comando:
+
+```python
+meu_infra_dig = InfraDig()
+```
+
+### Verificando a Existência de um Objeto
+
+Para verificar se há um objeto a menos de 30 cm, use:
+
+```python
+objeto = meu_infra_dig.haObjeto()
+```
+
+O método `haObjeto()` retorna `True` se houver um objeto a menos de 30 cm e `False` caso contrário.
+
+## Classe SensorCor
+
+A classe `SensorCor` gerencia os sensores de cor do robô.
+
+### Inicialização
+
+Para criar uma instância da classe `SensorCor`, use o seguinte comando:
+
+```python
+meu_sensor_cor = SensorCor(s0, s1, s2, s3, out)
+```
+
+Substitua `s0`, `s1`, `s2`, `s3` e `out` pelos números de portas correspondentes.
+
+### Medindo o Pulso
+
+Para medir o tempo em que uma porta ficou ligada, use:
+
+```python
+cont = meu_sensor_cor.medePulso(porta, tempo)
+```
+
+Substitua `porta` pela porta desejada e `tempo` pelo tempo desejado. O método `medePulso()` retorna o valor do contador.
+
+### Retornando a Cor
+
+Para retornar a cor vermelha, use:
+
+```python
+vermelho = meu_sensor_cor.RetornaCorVermelha()
+```
+
+Para retornar a cor azul, use:
+
+```python
+azul = meu_sensor_cor.RetornaCorAzul()
+```
+
+Para retornar a cor branca, use:
+
+```python
+branco = meu_sensor_cor.RetornaCorBranco()
+```
+
+Para retornar a cor verde, use:
+
+```python
+verde = meu_sensor_cor.RetornaCorVerde()
+```
+
+Cada um dos métodos acima retorna o valor correspondente à cor.
+
+---
+
+
 
 
 
