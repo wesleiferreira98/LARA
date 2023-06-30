@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <title>MicroPyBot</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- CodeMirror Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/darcula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+
+    <style>
+        /* Give the CodeMirror editor, the live display, and terminal a height of 80vh */
+        .CodeMirror, #live-display, #terminal {
+            height: 80vh;
+            margin: auto; /* Center the elements */
+        }
+        /* Give the terminal a solid border and background color */
+        #terminal {
+            border: 1px solid #888;
+            background-color: #000;
+        }
+        body {
+            padding-top: 30px;
+            background-color: #343a40;
+            color: #fff;
+        }
+        .highlight-div {
+            /* Cor de destaque para a borda */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Sombra */
+             /* Cor de fundo */
+           /* Espaço entre esta div e a próxima */
+        }
+        .navbar2 {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .btn-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+        .net{
+            background-color: #343a40;
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark navbar2">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand d-flex justify-content-center flex-grow-1" href="#">Bem-Vindo</a>
+            <span class="d-inline-block" style="width: 38px"></span>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#" id="logout">Sair</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row py-5">
+          <div class="col">
+            <div class=" highlight-div">
+              <div class="d-flex justify-content-between net highlight-div">
+                  <h2 class="text-center">Editor do MicroPyBot</h2>
+                  <div class="btn-wrapper">
+                      <button form="my-form" type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Enviar</button>
+                  </div>
+              </div>
+            </div>
+            <form id="my-form" class="was-validated" method="post" action="recebe_codigo.php">
+                <div class="form-floating mb-3 my-3 highlight-div">
+                    <textarea id="codemirror-editor" class="form-control"></textarea>
+                    <!-- A hidden input to hold the editor content when the form is submitted -->
+                    <input type="hidden" id="editor-content" name="editor_content">
+                </div>
+            </form>
+          </div>
+          <div class="col">
+            <div class=" highlight-div">
+            <div class="highlight-div d-flex justify-content-between net">
+              <h2 class="text-center">L2R2 ao Vivo</h2>
+              <div class="btn-wrapper">
+                <button form="my-form" type="submit" class="btn btn-success"><i class="fas fa-sync"></i> Atualizar</button>
+              </div>
+            </div>
+            </div>
+            <div id="live-display" class=" form-floating bg-light highlight-div mb-3 my-3">
+              <!-- Live robot display goes here -->
+            </div>
+          </div>
+        </div>
+        <div class="row py-5">
+          <div class="col">
+            <h2 class="text-center">Terminal</h2>
+            <div id="terminal"></div>
+          </div>
+        </div>
+      </div>
+    <script type="text/javascript">
+    // Initialize CodeMirror editor with the darcula theme
+    var editor = CodeMirror.fromTextArea(document.getElementById("codemirror-editor"), {
+        lineNumbers: true,
+        mode: "python",
+        theme: "darcula"
+    });
+
+    // Code to be displayed in the editor as soon as the page loads
+    var defaultCode = `"""
+esses imports sao obrigatorios em todos os codigos que serão submetidos ao ESP
+Em outras palavras essa e a estrutura basica dos codigos que sao ennviados ao ESP
+"""
+import sys
+sys.path.insert(1,'/classes')
+import Pacotes
+led = Pin(2, Pin.OUT)
+
+def rotina(execucaoMin):
+    execucaoSec = execucaoMin * 60 # converte o tempo de minutos para segudos
+    while execucaoSec: # executa o programa conforme o tempo definido pelo usuario
+        # Aqui e onde deve ser inserida toda a rotina do robo
+        led.value(1)
+        time.sleep(1)
+        led.value(0)
+        time.sleep(0.5)
+        execucaoSec -= 1 #nao apague essa linha
+        
+    print('programa finalizado.') # aparace quando o programa é finalizado
+
+rotina(2) # chama a rotina passando o tempo de execucao dentro dos parenteses`;
+
+    // Set the default code in the editor
+    editor.setValue(defaultCode);
+
+    // When the form is submitted, populate the hidden input with the editor content
+    document.getElementById("my-form").addEventListener("submit", function(e) {
+        document.getElementById("editor-content").value = editor.getValue();
+    });
+    // Initialize xterm.js terminal
+    var terminal = new Terminal();
+    terminal.open(document.getElementById('terminal'));
+    </script>
+  </body>
+</html>
